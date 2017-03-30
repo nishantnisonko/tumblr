@@ -9,9 +9,12 @@
 import UIKit
 
 class PhotoDetailsViewController: UIViewController {
+    var image: UIImage!
 
+    @IBOutlet weak var photoDetailImageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        photoDetailImageView.image = image
 
         // Do any additional setup after loading the view.
     }

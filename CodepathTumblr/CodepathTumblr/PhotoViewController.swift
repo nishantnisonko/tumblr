@@ -80,6 +80,8 @@ class PhotoViewController: UIViewController, UITableViewDataSource, UITableViewD
         // Pass the selected object to the new view controller.
         let vc = segue.destination as! PhotoDetailsViewController
         let indexPath = tableView.indexPath(for: sender as! UITableViewCell)
+        let cellView = tableView.cellForRow(at: indexPath!) as! PhotoViewCell
+        vc.image = cellView.photoImageView.image
     }
 
 }
