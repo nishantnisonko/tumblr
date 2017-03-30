@@ -10,12 +10,14 @@ import UIKit
 
 class PhotoDetailsViewController: UIViewController {
     var image: UIImage!
+    var caption: String!
 
+    @IBOutlet weak var detailTextView: UITextView!
     @IBOutlet weak var photoDetailImageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
         photoDetailImageView.image = image
-
+        detailTextView.text = caption
         // Do any additional setup after loading the view.
     }
 

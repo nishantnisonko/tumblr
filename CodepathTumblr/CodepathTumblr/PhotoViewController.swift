@@ -60,6 +60,10 @@ class PhotoViewController: UIViewController, UITableViewDataSource, UITableViewD
 //        return 5
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated:true)
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 //        let cell = UITableViewCell()
 //        cell.textLabel?.text = "This is row \(indexPath.row)"
@@ -71,6 +75,7 @@ class PhotoViewController: UIViewController, UITableViewDataSource, UITableViewD
         let image_url = alt_sizes[0]["url"] as! String
 //        cell.textLabel?.text = image_url
         cell.photoImageView.setImageWith(URL(string: image_url)!)
+        cell.summaryTextView.text = post["summary"] as? String
         return cell
     }
 
@@ -82,6 +87,10 @@ class PhotoViewController: UIViewController, UITableViewDataSource, UITableViewD
         let indexPath = tableView.indexPath(for: sender as! UITableViewCell)
         let cellView = tableView.cellForRow(at: indexPath!) as! PhotoViewCell
         vc.image = cellView.photoImageView.image
+        let post = self.posts[(indexPath?.row)!]
+        vc.caption = post["caption"] as? String
+
+
     }
 
 }
